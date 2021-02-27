@@ -1,3 +1,6 @@
+// Nome: Guilherme Afonso
+// TIA: 32030657
+
 #include <iostream>
 
 using namespace std;
