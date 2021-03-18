@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include "StaticStack.h"
+#include "AuxiliarFunctions.h"
 
 using namespace std;
 
@@ -105,26 +106,6 @@ void ex2() {
 	else {
 		cout << "A data digitada nao eh um palindromo\n";
 	}
-}
-
-//funcao para checar os simbolos
-bool check_symbols(char top1,  char top2) {
-	if (top1 == '(' && top2 == ')' || top1 == ')' && top2 == '(') {
-		return true;
-	}
-
-	if (top1 == '{' && top2 == '}' || top1 == '}' && top2 == '{') {
-		return true;
-	}
-
-	if (top1 == '[' && top2 == ']' || top1 == ']' && top2 == '[') {
-		return true;
-	}
-
-	if (top1 == '<' && top2 == '>' || top1 == '>' && top2 == '<') {
-		return true;
-	}
-	return false;
 }
 
 
