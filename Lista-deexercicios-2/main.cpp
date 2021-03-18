@@ -17,15 +17,7 @@ void ex1() {
 
 	int size = strlen(frase);
 
-	// removing spaces
-	for (int i = 0; i < size; i++) {
-		if (frase[i] == ' ') {
-			for (int j = i; j < size; j++) {
-				frase[j] = frase[j + 1];
-			}
-			size--;
-		}
-	}
+	cut_space(frase, size);
 
 	//tolower frase
 	for (int i = 0; i <= size; i++) {
@@ -71,15 +63,7 @@ void ex2() {
 	int size = strlen(data);
 
 
-	// removing slash
-	for (int i = 0; i < size; i++) {
-		if (data[i] == '/') {
-			for (int j = i; j < size; j++) {
-				data[j] = data[j + 1];
-			}
-			size--;
-		}
-	}
+	cut_slashes(data, size);
 
 	//push into two stacks
 	for (int i = 0; i < size / 2; i++) {
