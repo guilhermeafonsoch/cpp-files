@@ -1,3 +1,6 @@
+// Nome: Guilherme Afonso
+// TIA: 32030657
+
 #include "AuxiliarFunctions.h"
 #include <iostream>
 
