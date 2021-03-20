@@ -1,3 +1,6 @@
+// Nome: Guilherme Afonso
+// TIA: 32030657
+
 #ifndef __AUXILIAR_FUNCTIONS__
 #define __AUXILIAR_FUNCTIONS__
 

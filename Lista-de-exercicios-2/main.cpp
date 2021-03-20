@@ -1,3 +1,7 @@
+// Nome: Guilherme Afonso
+// TIA: 32030657
+
+
 #include <iostream>
 #include <string>
 #include <algorithm>

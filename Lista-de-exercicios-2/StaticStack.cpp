@@ -1,3 +1,7 @@
+// Nome: Guilherme Afonso
+// TIA: 32030657
+
+
 #include "StaticStack.h"
 
 StaticStack Create()

@@ -1,3 +1,7 @@
+// Nome: Guilherme Afonso
+// TIA: 32030657
+
+
 #ifndef __STATIC_STACK_H__
 #define __STATIC_STACK_H__
 
