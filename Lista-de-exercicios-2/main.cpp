@@ -1,12 +1,10 @@
 // Nome: Guilherme Afonso
 // TIA: 32030657
 
-
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include "StaticStack.h"
-#include "AuxiliarFunctions.h"
 
 using namespace std;
 
@@ -21,7 +19,14 @@ void ex1() {
 
 	int size = strlen(frase);
 
-	cut_space(frase, size);
+	for (int i = 0; i < size; i++) {
+		if (frase[i] == ' ') {
+			for (int j = i; j < size; j++) {
+				frase[j] = frase[j + 1];
+			}
+			size--;
+		}
+	}
 
 	//tolower frase
 	for (int i = 0; i <= size; i++) {
@@ -67,7 +72,14 @@ void ex2() {
 	int size = strlen(data);
 
 
-	cut_slashes(data, size);
+	for (int i = 0; i < size; i++) {
+		if (data[i] == '/') {
+			for (int j = i; j < size; j++) {
+				data[j] = data[j + 1];
+			}
+			size--;
+		}
+	}
 
 	//push into two stacks
 	for (int i = 0; i < size / 2; i++) {
@@ -95,6 +107,28 @@ void ex2() {
 		cout << "A data digitada nao eh um palindromo\n";
 	}
 }
+
+
+//funcao para checar os simbolos
+bool check_symbols(char top1, char top2) {
+	if (top1 == '(' && top2 == ')' || top1 == ')' && top2 == '(') {
+		return true;
+	}
+
+	if (top1 == '{' && top2 == '}' || top1 == '}' && top2 == '{') {
+		return true;
+	}
+
+	if (top1 == '[' && top2 == ']' || top1 == ']' && top2 == '[') {
+		return true;
+	}
+
+	if (top1 == '<' && top2 == '>' || top1 == '>' && top2 == '<') {
+		return true;
+	}
+	return false;
+}
+
 
 
 void ex3() {
@@ -149,7 +183,7 @@ void ex3() {
 int main(){
 	cout << "=== Lista 2 ===\n";
 
-	int option = 0;
+		int option = 0;
 	do{
 		cout << "\n<<< OPCOES >>>\n"
 			<< "[0] Sair\n"
@@ -164,9 +198,11 @@ int main(){
 		{
 		case 1: ex1(); break;
 		case 2: ex2(); break;
-		case 3: ex3(); break;
+		case 3: ex3(); break;						
 		}
 	} while (option != 0);
 
 }
+
+
 
