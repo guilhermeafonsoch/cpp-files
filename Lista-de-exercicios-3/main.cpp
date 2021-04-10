@@ -44,7 +44,7 @@ void cadastrar() {
 		Produto agua = { 'A', data, estante, gaveta, prateleira };
 		Enqueue(marcaA, agua);
 		cout << "Marca: " << agua.marca << '\n';
-		cout << "Data: " << agua.data << '\n';
+		cout << "Data: " << ctime(&agua.data) << '\n';
 		cout << "Estante: " << agua.estante << '\n';
 		cout << "Gaveta: " << agua.gaveta << '\n';
 		cout << "Prateleira: " << agua.armario << '\n';
@@ -55,7 +55,7 @@ void cadastrar() {
 		Produto agua = { 'B', data, estante, gaveta, prateleira };
 		Enqueue(marcaB, agua);
 		cout << "Marca: " << agua.marca << '\n';
-		cout << "Data: " << agua.data << '\n';
+		cout << "Data: " << ctime(&agua.data) << '\n';
 		cout << "Estante: " << agua.estante << '\n';
 		cout << "Gaveta: " << agua.gaveta << '\n';
 		cout << "Prateleira: " << agua.armario << '\n';
@@ -64,7 +64,7 @@ void cadastrar() {
 
 }
 
-void vender() {
+bool vender() {
 	int marca;
 	
 		cout << "\nQaul a marca de agua que quer vender? \n"
@@ -74,48 +74,54 @@ void vender() {
 			<< "Digite a opcao desejada:";
 		cin >> marca;
 	
-	if (marca == 1) {
+	if (marca == 1 && !IsEmpty(marcaA)) {
 		Produto vendido = Dequeue(marcaA);
 		cout << "Marca: " << vendido.marca << '\n';
-		cout << "Data: " << vendido.data << '\n';
+		cout << "Data: " << ctime(&vendido.data) << '\n';
 		cout << "Estante: " << vendido.estante << '\n';
 		cout << "Gaveta: " << vendido.gaveta << '\n';
 		cout << "Prateleira: " << vendido.armario << '\n';
 
 		cout << "A agua da marca A foi vendida!\n";
+		return true;
 	}
-	else if (marca == 2) {
+	else if (marca == 2 && !IsEmpty(marcaB)) {
 		Produto vendido = Dequeue(marcaB);
 		cout << "Marca: " << vendido.marca << '\n';
-		cout << "Data: " << vendido.data << '\n';
+		cout << "Data: " << ctime(&vendido.data) << '\n';
 		cout << "Estante: " << vendido.estante << '\n';
 		cout << "Gaveta: " << vendido.gaveta << '\n';
 		cout << "Prateleira: " << vendido.armario << '\n';
 
 		cout << "A agua da marca B foi vendida!\n";
+		return true;
 	}
 	else if (marca == 0) {
 		if (Front(marcaA).data <= Front(marcaB).data) {
 			Produto vendido = Dequeue(marcaA);
 			cout << "Marca: " << vendido.marca << '\n';
-			cout << "Data: " << vendido.data << '\n';
+			cout << "Data: " << ctime(&vendido.data) << '\n';
 			cout << "Estante: " << vendido.estante << '\n';
 			cout << "Gaveta: " << vendido.gaveta << '\n';
 			cout << "Prateleira: " << vendido.armario << '\n';
 
 			cout << "A agua mais antiga foi a da marca A e foi vendida!\n";
+			return true;
 		}
-		else {
+		else if (Front(marcaB).data <= Front(marcaA).data) {
 			Produto vendido = Dequeue(marcaB);
 			cout << "Marca: " << vendido.marca << '\n';
-			cout << "Data: " << vendido.data << '\n';
+			cout << "Data: " << ctime(&vendido.data) << '\n';
 			cout << "Estante: " << vendido.estante << '\n';
 			cout << "Gaveta: " << vendido.gaveta << '\n';
 			cout << "Prateleira: " << vendido.armario << '\n';
 
 			cout << "A agua mais antiga foi a da marca B e foi vendida!\n";
+			return true;
 		}
+
 	}
+	return false;
 }
 
 
@@ -123,6 +129,8 @@ void vender() {
 
 int main() {
 	int option;
+	Produto teste;
+	cout << Front(marcaA).data;
 	do {
 		cout << "\n === SISTEMA DE AGUAS === \n"
 			<< "[0] Sair do sistema\n"
@@ -130,19 +138,13 @@ int main() {
 			<< "[2] Vender\n"
 			<< "Opcao desejada: ";
 		cin >> option;
-		if (IsEmpty(marcaA) && option == 2) {
-			cout << "Nao ha produtos da marca A no estoque";
-		}else{
-			vender();
-		}
-		if (IsEmpty(marcaB) && option == 2) {
-			cout << "Nao ha produtos da marca B no estoque";
-		}
-		else {
-			vender();
-		}
 		if (option == 1) {
 			cadastrar();
+		}
+		if (option == 2) {
+			if (!vender()) {
+				cout << "Náo ha estoque para a marca pedida";
+			}
 		}
 
 
