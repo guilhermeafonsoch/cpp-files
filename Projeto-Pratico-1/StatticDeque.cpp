@@ -21,7 +21,7 @@ bool InsertFront(StaticDeque& deque, char elem){
 		deque.rear = 0;
 	} 
 	else if (deque.front == 0) {
-		deque.front = STATIC_QUEUE_CAPACITY - 1;
+		deque.front = STATIC_DEQUE_CAPACITY - 1;
 	}
 	else {
 		deque.front--;
@@ -45,7 +45,7 @@ bool InsertBack(StaticDeque& deque, char elem){
 		deque.front = 0;
 		deque.rear = 0;
 	}
-	else if (deque.rear == STATIC_QUEUE_CAPACITY - 1) {
+	else if (deque.rear == STATIC_DEQUE_CAPACITY - 1) {
 		deque.rear = 0;
 	}
 	else {
@@ -72,13 +72,14 @@ char RemoveFront(StaticDeque& deque){
 		deque.front = -1;
 		deque.rear = -1;
 	}
-	else if (deque.front == STATIC_QUEUE_CAPACITY - 1) {
+	else if (deque.front == STATIC_DEQUE_CAPACITY - 1) {
 			deque.front = 0;
 	}
 	else {
 		deque.front++;
 	}
 	
+	deque.count--;
 	return value;
 }
 
@@ -95,12 +96,13 @@ char RemoveBack(StaticDeque& deque){
 		deque.rear = -1;
 	}
 	else if (deque.rear == 0) {
-			deque.rear = STATIC_QUEUE_CAPACITY - 1;
+			deque.rear = STATIC_DEQUE_CAPACITY - 1;
 	}
 	else {
-		deque.rear = deque.rear - 1;
+		deque.rear--;
 	}
 	
+	deque.count--;
 	return value;
 }
 
@@ -115,7 +117,7 @@ char Back(const StaticDeque& deque){
 
 
 int Size(const StaticDeque& deque){
-	return sizeof(deque.values) / sizeof(deque.values[0]);
+	return STATIC_DEQUE_CAPACITY;
 }
 
 
