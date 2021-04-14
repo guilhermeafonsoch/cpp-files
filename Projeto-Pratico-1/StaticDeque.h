@@ -1,7 +1,7 @@
 #ifndef __STATIC_DEQUE_H__
 #define	__STATIC_DEQUE_H__
 
-const int STATIC_QUEUE_CAPACITY = 8;
+const int STATIC_DEQUE_CAPACITY = 32;
 
 struct StaticDeque
 {
@@ -9,7 +9,7 @@ struct StaticDeque
 	int rear;
 	int count;
 
-	char values[STATIC_QUEUE_CAPACITY];
+	char values[STATIC_DEQUE_CAPACITY];
 };
 
 StaticDeque Create();
