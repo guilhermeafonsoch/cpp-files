@@ -1,5 +1,5 @@
 // Guilherme Afonso TIA:32030657
-// Ednardo Goncalvez TIA:32028016
+// Eduardo Gonçalves TIA:32028016
 
 #include <iostream>
 #include <clocale>
