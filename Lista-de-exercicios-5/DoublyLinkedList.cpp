@@ -62,7 +62,7 @@ int main()
 	Append(list, 22, "Thomas");
 	Insert(list, 33, "Olga");
 	Append(list, 44, "Bia");
-	Insert(list, 55, "Anla");
+	Insert(list, 55, "Angela");
 	Append(list, 66, "Karen");
 	Insert(list, 77, "Adauto");
 	PrintDoubleListInfo(list);
