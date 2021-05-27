@@ -150,6 +150,13 @@ bool InsertBefore(LinkedList* list, int beforeId, int id, string name) {
 	return false;
 }
 
+/*
+A complexidade do algoritimo pela notacao Big Oseria O(n) pois levando em conta o seu pior caso teremos que percorrer toda a lista duplamente encadeada
+circular linearmente, ou seja, suponhamos que ha 5 elementos {Aldo 1, Lucas 2, Leticia 3, Lua 4, Jessica 5 } e eu quero usar a funcao InsertBefore do ID 5, 
+sera o seu pior caso percorrendo os 5 elementos. Sendo assim a complexidade eh O(n) 
+*/
+
+
 bool InsertAfter(LinkedList* list, int afterId, int id, string name) {
 	if (list->head == nullptr && list->tail == nullptr ) return false;
 	
@@ -170,3 +177,9 @@ bool InsertAfter(LinkedList* list, int afterId, int id, string name) {
 
 	return false;
 }
+
+/*
+Da mesma forma como a funcao InsertBefore a complexidade desse algoritimo pela notacao Big O seria O(n) pois levando em conta o seu pior caso (igual ao anterior) 
+teremos que percorrer toda a lista duplamente encadeada circular linearmente, ou seja, suponhamos que ha 5 elementos {Aldo 1, Lucas 2, Leticia 3, Lua 4, Jessica 5 } 
+e eu quero usar a funcao InsertAfter do ID 5, sera o seu pior caso percorrendo os 5 elementos. Sendo assim a complexidade eh O(n).
+*/
